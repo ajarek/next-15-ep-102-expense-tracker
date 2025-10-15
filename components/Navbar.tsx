@@ -5,6 +5,7 @@ import { LogIn, Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import React from 'react'
 import { cn } from '@/lib/utils'
+import { AnimatedThemeToggler } from '@/components/ui/animated-theme-toggler'
 
 const menuItems = [
   { name: 'Home', href: '/' },
@@ -27,11 +28,11 @@ const Navbar = () => {
     <header>
       <nav
         data-state={menuState && 'active'}
-        className='fixed z-20 w-full  '
+        className='fixed z-20 w-full mx-auto max-w-7xl '
       >
         <div
           className={cn(
-            'mx-auto  max-w-6xl px-6 transition-all duration-300 lg:px-12',
+            'mx-auto   px-4 transition-all duration-300  ',
             isScrolled &&
               'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5'
           )}
@@ -80,22 +81,21 @@ const Navbar = () => {
                   ))}
                 </ul>
               </div>
-
-              <Button
-                asChild
-                
-                className={
-                  'gradient '
-                }
-              >
-                <Link
-                  href='#'
-                  className='flex items-center  '
+              <div className='flex items-center gap-4'>
+                <Button
+                  asChild
+                  className={'gradient '}
                 >
-                  <span className='font-semibold '>Sign In</span>
-                  <LogIn className='font-semibold' />
-                </Link>
-              </Button>
+                  <Link
+                    href='#'
+                    className='flex items-center  '
+                  >
+                    <span className='font-semibold '>Sign In</span>
+                    <LogIn className='font-semibold' />
+                  </Link>
+                </Button>
+                <AnimatedThemeToggler />
+              </div>
             </div>
           </div>
         </div>

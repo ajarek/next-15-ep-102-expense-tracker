@@ -123,3 +123,8 @@
     @apply bg-gradient-to-br from-emerald-500 via-green-500 to-teal-500;
   }
 }
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
