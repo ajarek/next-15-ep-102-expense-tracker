@@ -37,7 +37,7 @@ const Navbar = () => {
               'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5'
           )}
         >
-          <div className='relative h-16 flex flex-wrap items-center justify-between gap-6  lg:gap-0 '>
+          <div className='relative h-16 flex flex-wrap items-center justify-between gap-6  lg:gap-0 border-b-2 '>
             <div className='flex w-full justify-between lg:w-auto'>
               <Logo />
 

@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto dark:gradient ">
         <Navbar/>
         {children}
         </div>
