@@ -88,7 +88,7 @@ const Navbar = () => {
                 >
                   <Link
                     href='#'
-                    className='flex items-center  '
+                    className='flex items-center text-white  '
                   >
                     <span className='font-semibold '>Sign In</span>
                     <LogIn className='font-semibold' />
