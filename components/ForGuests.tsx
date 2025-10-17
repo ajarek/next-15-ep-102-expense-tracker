@@ -1,3 +1,4 @@
+import FAQs from './Faqs'
 import Features from './Features-1'
 import HeroSection from './HeroSection'
 
@@ -7,6 +8,8 @@ const ForGuests = () => {
          
           <HeroSection/>
           <Features/>
+          <FAQs/>
+         
         </div>
   )
 }

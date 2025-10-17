@@ -49,6 +49,7 @@ export default function Features() {
                         </CardContent>
                     </Card>
                 </div>
+                 <div className="w-full h-1 gradient mt-16"></div>
             </div>
        
     )
