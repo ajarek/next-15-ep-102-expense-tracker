@@ -58,7 +58,7 @@ export default function Testimonial() {
                         <h2 className="className='text-balance text-3xl font-bold md:text-4xl lg:text-6xl">What Our Users <span className='text-emerald-600'>Say</span></h2>
                         <p className="mt-6">Join thousands of satisfied users who have transformed their financial habits with ExpenseTracker AI.</p>
                     </div>
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
                         {testimonialChunks.map((chunk, chunkIndex) => (
                             <div
                                 key={chunkIndex}
