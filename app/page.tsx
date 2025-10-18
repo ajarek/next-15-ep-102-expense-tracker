@@ -1,15 +1,17 @@
 import ForGuests from "@/components/ForGuests";
+import { currentUser } from '@clerk/nextjs/server';
 
+export default async function Home() {
+  
 
-export default function Home() {
-  const user=null; // Replace with actual user authentication logic
-
+   const user = await currentUser();
+   console.log(user)
   if (!user) {
-    return <ForGuests />
+    return <ForGuests />;
   }
   return (
-    <div className='min-h-[calc(100vh-64px)]   px-4 flex flex-col items-center justify-center  '>
-                <h1 className='text-3xl font-bold'>For Logged In Guests</h1>
+    <div className='min-h-[calc(100vh-64px)]  px-4 flex flex-col items-center justify-center  '>
+                <h1 className='text-3xl font-bold'>For Logged In Guests {user.firstName}</h1>
     </div>
   )
 }
