@@ -1,6 +1,7 @@
 import FAQs from './Faqs'
-import Features from './Features-1'
+import Features from './Features'
 import HeroSection from './HeroSection'
+import Testimonial from './Testimonial'
 
 const ForGuests = () => {
   return (
@@ -9,6 +10,7 @@ const ForGuests = () => {
           <HeroSection/>
           <Features/>
           <FAQs/>
+          <Testimonial/>
          
         </div>
   )
