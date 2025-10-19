@@ -79,7 +79,7 @@ const links = [
 
 export default function FooterSection() {
     return (
-        <footer className="border-b bg-white  dark:bg-transparent">
+        <footer className="border-b ">
             <div className="mx-auto max-w-7xl px-6">
                 <div className="grid gap-12 md:grid-cols-5">
                     <div className="md:col-span-2 space-y-4">
