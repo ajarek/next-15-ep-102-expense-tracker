@@ -36,13 +36,13 @@ export default async function Home() {
                 </p>
                 <div className='flex items-center gap-4 '>
                    <div className='flex items-center gap-2 border-2 rounded-xl px-2'>
-                  <span className='text-lg gradient p-1 rounded-xl'>👋</span>
+                  <span className='text-lg gradient p-1 rounded-xl'>📅</span>
                   <h2 className='text-lg font-bold'>
                     Joined {new Date(user.createdAt).toLocaleDateString()}
                   </h2>
                 </div>
                  <div className='flex items-center gap-2 border-2 rounded-xl px-2'>
-                  <span className='text-lg gradient p-1 rounded-xl'>👋</span>
+                  <span className='text-lg gradient p-1 rounded-xl'>⚡</span>
                   <h2 className='text-lg font-bold'>
                     Last Active {user.lastActiveAt ? new Date(user.lastActiveAt).toLocaleDateString() : 'N/A'}
                   </h2>
