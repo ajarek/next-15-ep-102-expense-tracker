@@ -16,53 +16,63 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import {
-   Field,
-  FieldDescription,
+  Field,
   FieldError,
   FieldGroup,
   FieldLabel,
-  FieldLegend,
-  FieldSeparator,
-  FieldSet,
-  FieldContent
 } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupTextarea,
-} from '@/components/ui/input-group'
+
 import {
   Select,
   SelectContent,
   SelectItem,
-  SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-
+} from '@/components/ui/select'
+import { addExpenseRecord } from '@/lib/actions/addExpenseRecord'
 
 const formSchema = z.object({
-  title: z
+  text: z
     .string()
-    .min(5, 'Bug title must be at least 5 characters.')
-    .max(32, 'Bug title must be at most 32 characters.'),
+    .min(5, 'Expense description must be at least 5 characters.')
+    .max(32, 'Expense description must be at most 32 characters.'),
   date: z.date(),
-  category: z.enum(['auto', 'en'] as const, { message: 'Please select a category.' }),
+  category: z.enum(
+    [
+      'food',
+      'transportation',
+      'shopping',
+      'entertainment',
+      'bills',
+      'healthcare',
+      'other',
+    ] as const,
+    {
+      message: 'Please select a category.',
+    }
+  ),
+  amount: z.string().min(1, 'Amount is required.'),
 })
 
 export function RecordAddForm() {
   const form = useForm({
     defaultValues: {
-      title: '',
+      text: '',
       date: new Date(),
-      category: 'auto',
+      category: 'other',
+      amount: '',
     },
     validators: {
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
+      const formData = new FormData()
+      formData.append('text', value.text)
+      formData.append('date', value.date.toISOString())
+      formData.append('category', value.category)
+      formData.append('amount', value.amount)
+      await addExpenseRecord(formData)
       toast('You submitted the following values:', {})
       form.reset()
     },
@@ -90,13 +100,15 @@ export function RecordAddForm() {
           <FieldGroup>
             <div className='flex items-center gap-2'>
               <form.Field
-                name='title'
+                name='text'
                 children={(field) => {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>Expense Description</FieldLabel>
+                      <FieldLabel htmlFor={field.name}>
+                        Expense Description
+                      </FieldLabel>
                       <Input
                         id={field.name}
                         name={field.name}
@@ -127,9 +139,15 @@ export function RecordAddForm() {
                         type='date'
                         id={field.name}
                         name={field.name}
-                        value={field.state.value instanceof Date ? field.state.value.toISOString().split('T')[0] : ''}
+                        value={
+                          field.state.value instanceof Date
+                            ? field.state.value.toISOString().split('T')[0]
+                            : ''
+                        }
                         onBlur={field.handleBlur}
-                        onChange={(e) => field.handleChange(new Date(e.target.value))}
+                        onChange={(e) =>
+                          field.handleChange(new Date(e.target.value))
+                        }
                         aria-invalid={isInvalid}
                         placeholder=''
                         autoComplete='on'
@@ -142,41 +160,79 @@ export function RecordAddForm() {
                 }}
               />
             </div>
-            <div>
+            <div className=' flex items-center gap-2 '>
               <form.Field
-  name="category"
-  children={(field) => {
-    const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
-    return (
-      <Field orientation="responsive" data-invalid={isInvalid}>
-        <FieldContent>
-          <FieldLabel htmlFor="form-tanstack-select-category">
-            Category
-          </FieldLabel>
-          
-          {isInvalid && <FieldError errors={field.state.meta.errors} />}
-        </FieldContent>
-        <Select
-          name={field.name}
-          value={field.state.value}
-          onValueChange={field.handleChange}
-        >
-          <SelectTrigger
-            id="form-tanstack-select-category"
-            aria-invalid={isInvalid}
-            className="min-w-[120px]"
-          >
-            <SelectValue placeholder="Select" />
-          </SelectTrigger>
-          <SelectContent position="item-aligned">
-            <SelectItem value="auto">Auto</SelectItem>
-            <SelectItem value="en">English</SelectItem>
-          </SelectContent>
-        </Select>
-      </Field>
-    )
-  }}
-/>
+                name='category'
+                children={(field) => {
+                  const isInvalid =
+                    field.state.meta.isTouched && !field.state.meta.isValid
+                  return (
+                    <Field data-invalid={isInvalid}>
+                      <FieldLabel htmlFor='form-tanstack-select-category'>
+                        Category
+                      </FieldLabel>
+
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
+
+                      <Select
+                        name={field.name}
+                        value={field.state.value}
+                        onValueChange={field.handleChange}
+                      >
+                        <SelectTrigger
+                          id='form-tanstack-select-category'
+                          aria-invalid={isInvalid}
+                          className='min-w-[120px]'
+                        >
+                          <SelectValue placeholder='Select' />
+                        </SelectTrigger>
+                        <SelectContent position='item-aligned'>
+                          <SelectItem value='food'>🍔 Food</SelectItem>
+                          <SelectItem value='transportation'>
+                            🚗 Transportation
+                          </SelectItem>
+                          <SelectItem value='shopping'>🛍️ Shopping</SelectItem>
+                          <SelectItem value='entertainment'>
+                            🎉 Entertainment
+                          </SelectItem>
+                          <SelectItem value='bills'>💰 Bills</SelectItem>
+                          <SelectItem value='healthcare'>
+                            🏥 Healthcare
+                          </SelectItem>
+                          <SelectItem value='other'>🔧 Other</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </Field>
+                  )
+                }}
+              />
+              <form.Field
+                name='amount'
+                children={(field) => {
+                  const isInvalid =
+                    field.state.meta.isTouched && !field.state.meta.isValid
+                  return (
+                    <Field data-invalid={isInvalid}>
+                      <FieldLabel htmlFor={field.name}>Amount</FieldLabel>
+                      <Input
+                        id={field.name}
+                        name={field.name}
+                        value={field.state.value}
+                        onBlur={field.handleBlur}
+                        onChange={(e) => field.handleChange(e.target.value)}
+                        aria-invalid={isInvalid}
+                        placeholder='50.00'
+                        autoComplete='off'
+                      />
+                      {isInvalid && (
+                        <FieldError errors={field.state.meta.errors} />
+                      )}
+                    </Field>
+                  )
+                }}
+              />
             </div>
           </FieldGroup>
         </form>
