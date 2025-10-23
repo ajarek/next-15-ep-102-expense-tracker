@@ -40,10 +40,9 @@ export async function addExpenseRecord(data: FormData) {
   if (Number.isNaN(amount)) {
     throw new Error('Invalid amount');
   }
-
+  try{
   await db.record.create({
     data: {
-      // Use the clerkUserId value stored in the DB to satisfy the FK
       userId: dbUser.clerkUserId,
       text,
       date,
@@ -53,4 +52,10 @@ export async function addExpenseRecord(data: FormData) {
   });
 
   revalidatePath('/dashboard');
+}catch (error) {
+    console.error('Error adding expense record:', error);
+    return {
+      error: 'An unexpected error occurred while adding the expense record.',
+    };
+  }
 }

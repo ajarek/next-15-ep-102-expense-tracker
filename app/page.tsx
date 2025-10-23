@@ -2,6 +2,7 @@ import ForGuests from '@/components/ForGuests'
 import { RecordAddForm } from '@/components/FormNewRecord'
 import { currentUser } from '@clerk/nextjs/server'
 import Image from 'next/image'
+import ExpenseChart from '@/components/ExpenseChart'
 
 export default async function Home() {
   const user = await currentUser()
@@ -20,7 +21,7 @@ export default async function Home() {
                 alt='image'
                 width={80}
                 height={80}
-                className='rounded-lg '
+                className='rounded-lg max-lg:hidden '
               />
               <div className='flex flex-col gap-4'>
                 <div className='flex items-center gap-2'>
@@ -55,7 +56,9 @@ export default async function Home() {
 
           <RecordAddForm />
         </div>
-        <div></div>
+        <div>
+          <ExpenseChart/>
+        </div>
       </div>
     </div>
   )

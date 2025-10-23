@@ -81,10 +81,10 @@ export function RecordAddForm() {
   return (
     <Card className='w-full bg-transparent'>
       <CardHeader className='flex items-center '>
-        <span className='text-lg gradient p-1 rounded-xl'>💳</span>
+        <span className='text-2xl gradient p-1 rounded-xl'>💳</span>
         <div>
-          <CardTitle>Add New Expense</CardTitle>
-          <CardDescription>
+          <CardTitle className='text-2xl'>Add New Expense</CardTitle>
+          <CardDescription className='text-lg text-gray-700 dark:text-gray-400'>
             Track your spending with AI assistance.
           </CardDescription>
         </div>

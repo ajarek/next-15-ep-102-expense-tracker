@@ -106,7 +106,7 @@ const HeroSection = () => {
                     size='xl'
                     className='rounded-xl gradient '
                   >
-                    <Link href='/menu'>
+                    <Link href='/sign-up'>
                       <span className='text-nowrap text-white  text-xl space-x-2 flex items-center hover:text-gray-200'>
                         Get Started Free
                         <ChevronRight />
@@ -119,7 +119,7 @@ const HeroSection = () => {
                     variant='outline'
                     className='rounded-xl px-5 text-base '
                   >
-                    <Link href='/menu'>
+                    <Link href='/contact'>
                       <span className='text-nowrap text-xl'>Learn More</span>
                     </Link>
                   </Button>
