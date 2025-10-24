@@ -16,7 +16,7 @@ export const AnimatedThemeToggler = ({
   duration = 400,
   ...props
 }: AnimatedThemeTogglerProps) => {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState<boolean | null>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export const AnimatedThemeToggler = ({
       setIsDark(document.documentElement.classList.contains("dark"))
     }
 
+    // Initialize theme state on client
     updateTheme()
 
     const observer = new MutationObserver(updateTheme)
@@ -78,7 +79,11 @@ export const AnimatedThemeToggler = ({
       className={cn(className, 'text-2xl')}
       {...props}
     >
-      {isDark ? '☀️' : '🌙'}
+      {/*
+        Avoid rendering a different icon on first client render than on server.
+        Render nothing until we know theme on client to prevent hydration mismatch.
+      */}
+      {isDark === null ? null : isDark ? '☀️' : '🌙'}
       <span className="sr-only">Toggle theme</span>
     </button>
   )

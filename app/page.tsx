@@ -3,13 +3,15 @@ import { RecordAddForm } from '@/components/FormNewRecord'
 import { currentUser } from '@clerk/nextjs/server'
 import Image from 'next/image'
 import ExpenseChart from '@/components/ExpenseChart'
+import ExpenseStatistic from '@/components/ExpenseStatistic'
 
 export default async function Home() {
   const user = await currentUser()
-  console.log(user)
+
   if (!user) {
     return <ForGuests />
   }
+
   return (
     <div className='min-h-[calc(100vh-64px)]  px-4 flex flex-col items-center justify-start gap-4 pt-24 pb-8 '>
       <div className='w-full grid grid-cols-1 md:grid-cols-2 gap-4 '>
@@ -36,19 +38,22 @@ export default async function Home() {
                   efficiently!
                 </p>
                 <div className='flex items-center gap-4 '>
-                   <div className='flex items-center gap-2 border-2 rounded-xl px-2'>
-                  <span className='text-lg gradient p-1 rounded-xl'>📅</span>
-                  <h2 className='text-lg font-bold'>
-                    Joined {new Date(user.createdAt).toLocaleDateString()}
-                  </h2>
-                </div>
-                 <div className='flex items-center gap-2 border-2 rounded-xl px-2'>
-                  <span className='text-lg gradient p-1 rounded-xl'>⚡</span>
-                  <h2 className='text-lg font-bold'>
-                    Last Active {user.lastActiveAt ? new Date(user.lastActiveAt).toLocaleDateString() : 'N/A'}
-                  </h2>
-                  <p></p>
-                </div>
+                  <div className='flex items-center gap-2 border-2 rounded-xl px-2'>
+                    <span className='text-lg gradient p-1 rounded-xl'>📅</span>
+                    <h2 className='text-lg font-bold'>
+                      Joined {new Date(user.createdAt).toLocaleDateString()}
+                    </h2>
+                  </div>
+                  <div className='flex items-center gap-2 border-2 rounded-xl px-2'>
+                    <span className='text-lg gradient p-1 rounded-xl'>⚡</span>
+                    <h2 className='text-lg font-bold'>
+                      Last Active{' '}
+                      {user.lastActiveAt
+                        ? new Date(user.lastActiveAt).toLocaleDateString()
+                        : 'N/A'}
+                    </h2>
+                    <p></p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -56,8 +61,9 @@ export default async function Home() {
 
           <RecordAddForm />
         </div>
-        <div>
-          <ExpenseChart/>
+        <div className='flex flex-col gap-4'>
+          <ExpenseChart />
+          <ExpenseStatistic />
         </div>
       </div>
     </div>
