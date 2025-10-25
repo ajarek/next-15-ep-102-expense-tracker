@@ -20,7 +20,7 @@ const lowest = filterRecords ? Math.min(...filterRecords.map(record=>record.amou
           </p>
         </div>
       </section>
-      <section className='min-h-[180px] flex flex-col justify-between items-center bg-gray-400 dark:bg-gray-700 p-4 rounded-xl'>
+      <section className='min-h-[150px] flex flex-col justify-between items-center bg-gray-400 dark:bg-gray-700 p-4 rounded-xl'>
         <h1 className='uppercase text-2xl'>Average Daily spending</h1>
         <span className='text-3xl font-bold'>${average.toFixed(2)}</span>
         <div className='flex items-center gap-2 bg-primary/50 py-1 px-2 rounded-lg'>

@@ -79,7 +79,7 @@ export function RecordAddForm() {
   })
 
   return (
-    <Card className='w-full bg-transparent'>
+    <Card className='w-full bg-transparent space-y-8'>
       <CardHeader className='flex items-center '>
         <span className='text-2xl gradient p-1 rounded-xl'>💳</span>
         <div>
@@ -96,6 +96,7 @@ export function RecordAddForm() {
             e.preventDefault()
             form.handleSubmit()
           }}
+          className='space-y-8 '
         >
           <FieldGroup>
             <div className='flex items-center gap-2'>
@@ -105,8 +106,8 @@ export function RecordAddForm() {
                   const isInvalid =
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
-                    <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>
+                    <Field data-invalid={isInvalid} >
+                      <FieldLabel htmlFor={field.name} className='text-lg'>
                         Expense Description
                       </FieldLabel>
                       <Input
@@ -118,6 +119,7 @@ export function RecordAddForm() {
                         aria-invalid={isInvalid}
                         placeholder='Coffee, groceries ...'
                         autoComplete='off'
+                        
                       />
                       {isInvalid && (
                         <FieldError errors={field.state.meta.errors} />
@@ -134,7 +136,7 @@ export function RecordAddForm() {
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>Expense Date</FieldLabel>
+                      <FieldLabel htmlFor={field.name} className='text-lg'>Expense Date</FieldLabel>
                       <Input
                         type='date'
                         id={field.name}
@@ -168,7 +170,7 @@ export function RecordAddForm() {
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor='form-tanstack-select-category'>
+                      <FieldLabel htmlFor='form-tanstack-select-category' className='text-lg'>
                         Category
                       </FieldLabel>
 
@@ -180,11 +182,12 @@ export function RecordAddForm() {
                         name={field.name}
                         value={field.state.value}
                         onValueChange={field.handleChange}
+                        
                       >
                         <SelectTrigger
                           id='form-tanstack-select-category'
                           aria-invalid={isInvalid}
-                          className='min-w-[120px]'
+                          className='min-w-[120px] '
                         >
                           <SelectValue placeholder='Select' />
                         </SelectTrigger>
@@ -215,7 +218,7 @@ export function RecordAddForm() {
                     field.state.meta.isTouched && !field.state.meta.isValid
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>Amount</FieldLabel>
+                      <FieldLabel htmlFor={field.name} className='text-lg'>Amount</FieldLabel>
                       <Input
                         id={field.name}
                         name={field.name}
@@ -242,6 +245,8 @@ export function RecordAddForm() {
           <Button
             type='submit'
             form='bug-report-form'
+            className='text-xl'
+            size={'xl'}
           >
             Submit
           </Button>
