@@ -5,8 +5,10 @@ const ExpenseStatistic = async () => {
 const daysAverage = 3
 const { records } = await getRecords();
 const filterRecords=records?.filter((record,index)=>index<daysAverage)
-console.log(filterRecords)
 
+const average = filterRecords? filterRecords.reduce((acc,record)=>acc+record.amount,0)/daysAverage:0
+const highest = filterRecords ? Math.max(...filterRecords.map(record=>record.amount)) : 0
+const lowest = filterRecords ? Math.min(...filterRecords.map(record=>record.amount)) : 0
   return (
     <div className='flex flex-col gap-4 p-4  rounded-xl border-2 shadow-2xl'>
       <section className='flex items-center gap-4 '>
@@ -20,7 +22,7 @@ console.log(filterRecords)
       </section>
       <section className='min-h-[180px] flex flex-col justify-between items-center bg-gray-400 dark:bg-gray-700 p-4 rounded-xl'>
         <h1 className='uppercase text-2xl'>Average Daily spending</h1>
-        <span className='text-3xl font-bold'>$38.00</span>
+        <span className='text-3xl font-bold'>${average.toFixed(2)}</span>
         <div className='flex items-center gap-2 bg-primary/50 py-1 px-2 rounded-lg'>
           <span className='text-2xl gradient p-1 rounded-xl'></span>
           <p className=''>Based on {daysAverage} days with expenses</p>
@@ -33,7 +35,7 @@ console.log(filterRecords)
             <div>
               <h2 className='text-2xl font-bold'>Highest</h2>
               <p className='text-xl text-gray-700 dark:text-gray-300'>
-                $50
+                ${highest}
               </p>
             </div>
           </div>
@@ -44,7 +46,7 @@ console.log(filterRecords)
             <div>
               <h2 className='text-2xl font-bold'>Lowest</h2>
               <p className='text-xl text-gray-700 dark:text-gray-300'>
-                $15
+                ${lowest}
               </p>
             </div>
           </div>
