@@ -7,8 +7,14 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
+import type {Record} from "@/types/Record"
+import ButtonDeleteRecord from './ButtonDeleteRecord'
 
-const ExpenseHistory = () => {
+interface ExpenseHistoryProps {
+  records: Record[]
+}
+
+const ExpenseHistory = ({ records }: ExpenseHistoryProps) => {
   return (
     <div className='w-full flex flex-col gap-4 p-4  rounded-xl border-2 shadow-2xl'>
       <section className='flex items-center gap-4 '>
@@ -24,15 +30,23 @@ const ExpenseHistory = () => {
       opts={{
         align: "start",
       }}
-      className="w-full max-w-4xl mx-auto cursor-grab"
+      className="w-full sm:max-w-xl md:max-w-3xl lg:max-w-5xl mx-auto cursor-grab"
     >
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+        {records.map((record) => (
+          <CarouselItem key={record.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4">
             <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
+              <Card className='box-border border-2 border-green-500 shadow-lime-400'>
+                <CardContent className="flex flex-col aspect-square items-start justify-between p-2">
+                  <div className='w-full flex items-center justify-between'>
+                    <span className='text-xl'>{record.createdAt.toLocaleDateString()}</span>
+                    <span className='text-2xl font-semibold'>${record.amount.toFixed(2)}</span>
+                  </div>
+                  <p className='text-xl'>{record.category}</p>
+                  <p className="text-xl">{record.text}</p>
+                  <div className='w-full flex items-center justify-end'>
+                    <ButtonDeleteRecord id={record.id}/>
+                  </div>
                 </CardContent>
               </Card>
             </div>

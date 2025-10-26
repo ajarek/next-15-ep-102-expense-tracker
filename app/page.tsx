@@ -80,7 +80,7 @@ const total = records? records.reduce((acc,record)=>acc+record.amount,0):0
           <ExpenseStatistic />
         </div>
       </div>
-      <ExpenseHistory/>
+      <ExpenseHistory records={records ?? []} />
     </div>
   )
 }
