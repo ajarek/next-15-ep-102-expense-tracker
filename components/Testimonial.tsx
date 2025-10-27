@@ -14,21 +14,21 @@ const testimonials: Testimonial[] = [
         name: 'Jonathan Yombo',
         role: 'Verified User',
         image: 'https://randomuser.me/api/portraits/men/1.jpg',
-        quote: '“ExpenseTracker AI has completely transformed my budgeting. The AI insights are incredibly helpful and I now have full control over my finances!”.',
+        quote: '“ExpenseTracker has completely transformed my budgeting. The  insights are incredibly helpful and I now have full control over my finances!”.',
         stars:'⭐⭐⭐⭐⭐',
     },
     {
         name: 'Yves Kalume',
         role: 'Verified User',
         image: 'https://randomuser.me/api/portraits/men/6.jpg',
-        quote: '“The AI-powered insights from ExpenseTracker have helped me identify and reduce unnecessary spending. The smart categorization is amazing!”',
+        quote: '“The powered insights from ExpenseTracker have helped me identify and reduce unnecessary spending. The smart categorization is amazing!”',
         stars:'⭐⭐⭐⭐⭐',
     },
     {
         name: 'Yucel Faruksahan',
         role: 'Verified User',
         image: 'https://randomuser.me/api/portraits/men/7.jpg',
-        quote: '“ExpenseTracker AI is so intelligent and easy to use. The AI recommendations are spot-on and have genuinely improved my financial habits!”',
+        quote: '“ExpenseTracker  is so intelligent and easy to use. The  recommendations are spot-on and have genuinely improved my financial habits!”',
         stars:'⭐⭐⭐⭐⭐',
     },
     
@@ -56,7 +56,7 @@ export default function Testimonial() {
                 <div className="mx-auto max-w-7xl px-6">
                     <div className="text-center">
                         <h2 className="className='text-balance text-3xl font-bold md:text-4xl lg:text-6xl">What Our Users <span className='text-emerald-600'>Say</span></h2>
-                        <p className="mt-6">Join thousands of satisfied users who have transformed their financial habits with ExpenseTracker AI.</p>
+                        <p className="mt-6">Join thousands of satisfied users who have transformed their financial habits with ExpenseTracker.</p>
                     </div>
                     <div className="mt-8 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
                         {testimonialChunks.map((chunk, chunkIndex) => (

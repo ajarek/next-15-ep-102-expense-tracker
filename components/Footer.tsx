@@ -85,7 +85,7 @@ export default function FooterSection() {
                     <div className="md:col-span-2 space-y-4">
                         
                             <Logo />
-                        <p className="text-gray-700 dark:text-gray-300">Intelligent financial management powered by AI. Track your expenses, manage your budget, and gain insights into your spending patterns.</p>
+                        <p className="text-gray-700 dark:text-gray-300">Intelligent financial management powered . Track your expenses, manage your budget, and gain insights into your spending patterns.</p>
                     </div>
 
                     <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 md:col-span-3">

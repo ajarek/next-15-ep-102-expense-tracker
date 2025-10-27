@@ -85,7 +85,7 @@ export function RecordAddForm() {
         <div>
           <CardTitle className='text-2xl'>Add New Expense</CardTitle>
           <CardDescription className='text-lg text-gray-700 dark:text-gray-400'>
-            Track your spending with AI assistance.
+            Track your expenses with the help of a smart app.
           </CardDescription>
         </div>
       </CardHeader>

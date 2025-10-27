@@ -13,7 +13,7 @@ export default function Features() {
                                <span className='text-4xl gradient p-2 rounded-xl'>🤖</span>
                             </CardDecorator>
 
-                            <h3 className="mt-6 text-2xl font-semibold">AI Insights</h3>
+                            <h3 className="mt-6 text-2xl font-semibold"> Insights</h3>
                         </CardHeader>
 
                         <CardContent>

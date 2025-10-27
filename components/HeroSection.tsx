@@ -11,9 +11,9 @@ const HeroSection = () => {
        <div className='inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-100 px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6 shadow-lg mt-4'>
                   <span className='w-1.5 h-1.5 sm:w-2 sm:h-2 bg-emerald-500 dark:bg-emerald-400 rounded-full animate-pulse'></span>
                   <span className='hidden sm:inline'>
-                    AI-Powered Financial Management
+                    Powered Financial Management
                   </span>
-                  <span className='sm:hidden'>AI Financial Management</span>
+                  <span className='sm:hidden'> Financial Management</span>
                 </div>
         
       <section>
@@ -57,7 +57,7 @@ const HeroSection = () => {
                 as='h1'
                 className=' font-bold text-balance text-3xl md:text-5xl   '
               >
-                Welcome  to Expense Tracker AI
+                Welcome  to Expense Tracker 
               </TextEffect>
               <TextEffect
                 per='line'
@@ -67,7 +67,7 @@ const HeroSection = () => {
                 as='p'
                 className='mx-auto mt-8 max-w-[550px] font-bold text-xl text-primary text-shadow-2xl '
               >
-                Track your expenses, manage your budget, and get AI-powered insights to take control of your finances with intelligent automation.
+                Track your expenses, manage your budget, and get powered insights to take control of your finances with intelligent automation.
               </TextEffect>
 
               <AnimatedGroup

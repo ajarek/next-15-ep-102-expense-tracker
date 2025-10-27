@@ -12,7 +12,7 @@ const Logo = () => {
       </span>
 
       <span className='text-sm sm:text-base md:text-lg lg:text-xl font-bold  gradient bg-clip-text text-transparent'>
-        <span className='hidden sm:inline'>ExpenseTracker AI</span>
+        <span className='hidden sm:inline'>ExpenseTracker</span>
         <span className='sm:hidden'>ExpenseTracker</span>
       </span>
     </Link>

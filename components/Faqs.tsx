@@ -11,23 +11,23 @@ export default function FAQs() {
   const faqItems = [
     {
       id: 'item-1',
-      question: 'What is ExpenseTracker AI?',
+      question: 'What is ExpenseTracker ?',
       answer:
-        'ExpenseTracker AI is an intelligent financial management tool that uses artificial intelligence to help you monitor your spending patterns, get smart category suggestions, and receive personalized insights to improve your financial health.',
+        'ExpenseTracker  is an intelligent financial management tool that uses artificial intelligence to help you monitor your spending patterns, get smart category suggestions, and receive personalized insights to improve your financial health.',
       icon: '🧠',
     },
     {
       id: 'item-2',
-      question: 'How does the AI work?',
+      question: 'How does the  work?',
       answer:
-        'Our AI analyzes your spending data to automatically categorize expenses, detect patterns, and provide personalized recommendations. You can also ask the AI questions about your spending habits and get instant, intelligent responses.',
+        'Our  analyzes your spending data to automatically categorize expenses, detect patterns, and provide personalized recommendations. You can also ask the  questions about your spending habits and get instant, intelligent responses.',
       icon: '🤖',
     },
     {
       id: 'item-3',
-      question: 'Is ExpenseTracker AI free?',
+      question: 'Is ExpenseTracker  free?',
       answer:
-        'Yes, ExpenseTracker AI offers a free plan with basic AI features including smart categorization and insights. Premium plans are available for advanced AI analytics and unlimited AI interactions.',
+        'Yes, ExpenseTracker  offers a free plan with basic features including smart categorization and insights. Premium plans are available for advanced  analytics and unlimited  interactions.',
       icon: '💎',
     },
   ]
@@ -45,7 +45,7 @@ export default function FAQs() {
             Frequently Asked <span className='text-emerald-600'>Questions</span>
           </h2>
           <p className='text-muted-foreground mt-4 text-balance'>
-            Everything you need to know about ExpenseTracker AI and how it can
+            Everything you need to know about ExpenseTracker  and how it can
             transform your financial management.
           </p>
         </div>
