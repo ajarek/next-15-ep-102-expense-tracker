@@ -1,9 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-<img width="331" height="716" alt="20251027-localhost-iphone14promax" src="https://github.com/user-attachments/assets/a09ed99f-95ac-4c6a-a471-68cb3b67c5d8" />
+
 <img width="600" height="468" alt="20251027-localhost-ipadpro13" src="https://github.com/user-attachments/assets/976eb0b1-94e3-40b1-a327-4f854bd651d3" />
 <img width="600" height="468" alt="20251027-localhost-ipadpro13 (1)" src="https://github.com/user-attachments/assets/5713b5eb-1de5-4eaa-b82c-88a360e4e0d4" />
-
+<img width="331" height="716" alt="20251027-localhost-iphone14promax" src="https://github.com/user-attachments/assets/a09ed99f-95ac-4c6a-a471-68cb3b67c5d8" />
 
 ## Getting Started
 
